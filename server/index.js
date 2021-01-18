@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 //Postgress client setup
 const {Pool} = require('pg');
-const key = require('./key');
+const key = require('./keys');
 const pgClient = new Pool({
     user: keys.pgUser,
     host: keys.pgHost,
