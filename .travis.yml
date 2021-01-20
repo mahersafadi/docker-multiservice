@@ -1,4 +1,6 @@
 sudo : required
+language: generic
+
 services:
   - docker
 
@@ -6,7 +8,7 @@ before_install:
   - docker build -t maher07/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run maher07/react-test npm test -- --coverage
+  - docker run -e CI=true stephengrider/react-test npm test
 
 after_success:
   - docker build -t maher07/multi-client ./client
