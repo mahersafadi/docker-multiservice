@@ -47,4 +47,14 @@ client:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+client with nginx:
+server {
+  listen 3000;
+ 
+  location / {
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+    try_files $uri $uri/ /index.html;
+  }
+}
             
