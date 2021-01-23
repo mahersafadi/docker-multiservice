@@ -22,3 +22,15 @@ after_success:
   - docker push maher07/multi-nginx
   - docker push maher07/multi-server
   - docker push maher07/multi-worker
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-west-2-379284310072
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_ld: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY 
